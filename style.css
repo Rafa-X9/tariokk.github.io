@@ -45,3 +45,9 @@ table{
 hr{
     color: #000000;
 }
+button {
+    font-size: 20px;
+}
+.info {
+    background-image: linear-gradient(to right,#d05bff,#6800bd,#2f0055);
+}
