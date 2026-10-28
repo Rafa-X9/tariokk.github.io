@@ -10,6 +10,9 @@ div {
     font-size: 25px;
     color: #ffffff;
 }
+.pretty {
+    text-shadow: 0 0 0.22em #fff;
+}
 nav{
     background-color: #af4aff;
     padding: 10px;
@@ -34,6 +37,7 @@ nav a{
 }
 nav a:hover{
     color: #fff700;
+    text-shadow: 0 0 15px #fff700;
 }
 .glih {
     width: 25%;
@@ -46,8 +50,16 @@ hr{
     color: #000000;
 }
 button {
-    font-size: 20px;
+    font-size: 30px;
     touch-action: manipulation;
+    background-color: #ff85e4;
+    border: 5px solid #632497;
+    border-radius: 10px;
+    color: #fff;
+    text-shadow: 0 0 0.22em #fff;
+}
+button:hover{
+    background-color: #dd6fc5;
 }
 .info {
     background-image: linear-gradient(to right,#d05bff,#6800bd,#2f0055);
