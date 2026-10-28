@@ -18,6 +18,7 @@ formGlihName.addEventListener("submit", (event) => {
     userNameMessage.textContent = `oi ${userName}!!!!!!!!!!!!!!!!!!!`
     nameInput.value = ""
 })
+let translationEN = false
 let glihButton = document.querySelector("#glihButton")
 let glihMessage = document.querySelector("#glihMessage")
 let glihBalanceMessage = document.querySelector("#glihBalanceMessage")
@@ -38,21 +39,52 @@ glihButton.addEventListener("click", () => {
     glihBalance = glihBalance + glihIncrease
     glihBalanceMessage.textContent = `glihs: ${glihBalance}`
     if (glihNumber > 1) {
+        if (!translationEN) {
         glihMessage.textContent = `${userName} ganhou ${glihNumber} glihs!`
+        } else {
+            glihMessage.textContent = `${userName} gained ${glihNumber} glihs!`
+        }
     }
     else {
-        glihMessage.textContent = `${userName} ganhou ${glihNumber} glih!`
+        if (!translationEN) {
+        glihMessage.textContent = `${userName} ganhou ${glihNumber} glihs!`
+        } else {
+            glihMessage.textContent = `${userName} gained ${glihNumber} glihs!`
+        }
     }
 })
 let buyGlih = document.querySelector("#buyGlih")
 let buyGlihPrice = 67
-buyGlih.textContent = `comprar glih upgrade $${buyGlihPrice} glihs`
+if (!translationEN) {
+    buyGlih.textContent = `comprar glih upgrade $${buyGlihPrice} glihs`
+} else {
+    buyGlih.textContent = `buy glih upgrade $${buyGlihPrice} glihs`
+}
 buyGlih.addEventListener("click",()=>{
     if (glihBalance >= buyGlihPrice) {
         glihBalance = glihBalance - buyGlihPrice
         glihBalanceMessage.textContent = `glihs: ${glihBalance}`
         buyGlihPrice = buyGlihPrice * 2
-        buyGlih.textContent = `comprar glih upgrade $${buyGlihPrice} glihs`
+        if (!translationEN) {
+            buyGlih.textContent = `comprar glih upgrade $${buyGlihPrice} glihs`
+        } else {
+            buyGlih.textContent = `buy glih upgrade $${buyGlihPrice} glihs`
+        }
         glihIncrease++
     }
+})
+// traducao
+translations = {
+    welcome: "Welcome to glihland here we have glihs",
+    nameInput: "type your name:",
+    glihButton: "click for glih",
+    tip: "if yoyr'e on pc you can click with mouse OR spacebar"
+}
+buttonTranslate = document.querySelector("buttonTranslate")
+buttonTranslate.addEventListener("click",()=>{
+    translationEN = true
+    document.querySelectorAll("[data-translate]").forEach(element=>{
+        element.textContent = translations[element.dataset.translate]
+    })
+    buttonTranslate.remove()
 })
