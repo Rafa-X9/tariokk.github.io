@@ -80,7 +80,7 @@ translations = {
     glihButton: "click for glih",
     tip: "if yoyr'e on pc you can click with mouse OR spacebar"
 }
-buttonTranslate = document.querySelector("buttonTranslate")
+buttonTranslate = document.querySelector("#buttonTranslate")
 buttonTranslate.addEventListener("click",()=>{
     translationEN = true
     document.querySelectorAll("[data-translate]").forEach(element=>{
